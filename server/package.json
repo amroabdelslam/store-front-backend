@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "build": "chmod a+x node_modules/.bin/tsc npx tsc",
+    "build": "chmod a+x node_modules/.bin/tsc&& npx tsc",
     "jasmine": "npm run build && jasmine",
     "lint": "eslint ./**/*.ts",
     "prettier": "prettier --config .prettierrc ./**/*.{js,ts} --write",
