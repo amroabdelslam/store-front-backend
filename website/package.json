@@ -1,0 +1,13 @@
+{
+    "nodemonConfig": {
+        "ext": "js,html"
+    },
+    "scripts": {
+        "start": "http-server -p 5050",
+        "build": "cp index.html www/index.html",
+        "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
+    },
+    "dependencies": {
+        "http-server": "^14.1.1"
+    }
+}

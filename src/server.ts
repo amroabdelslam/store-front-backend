@@ -1,15 +1,12 @@
-import express, { Request, Response } from 'express'
-import bodyParser from 'body-parser'
+import app from '../src/app';
+import { env } from 'process';
+import dotenv from 'dotenv';
 
-const app: express.Application = express()
-const address: string = "0.0.0.0:3000"
+dotenv.config();
 
-app.use(bodyParser.json())
-
-app.get('/', function (req: Request, res: Response) {
-    res.send('Hello World!')
-})
-
-app.listen(3000, function () {
-    console.log(`starting app on: ${address}`)
-})
+const port = env.PORT || 8080;
+// Main route can be accessed without a token
+const address = `http://localhost:${port}`;
+app.listen(port, function () {
+  console.log(`starting app on: ${address}`);
+});
