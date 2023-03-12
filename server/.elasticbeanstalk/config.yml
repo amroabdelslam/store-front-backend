@@ -2,6 +2,8 @@ branch-defaults:
   default:
     environment: store-front-backend-dev
     group_suffix: null
+deploy:
+  artifact: ./store.tar.gz
 global:
   application_name: store-front-backend
   branch: null
