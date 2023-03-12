@@ -4,7 +4,7 @@
     "install:website": "cd website && npm install",
     "build:server": "cd src && npm run build",
     "build:website": "cd website && npm run build",
-    "deploy:server": "cd src && npm run deploy",
-    "deploy:website": "cd website && npm run deploy"
+    "deploy:website": "cd website && npm run deploy",
+    "deploy:server": "cd src && npm run deploy"
   }
 }
