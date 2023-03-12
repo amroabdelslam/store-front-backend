@@ -1,8 +1,0 @@
-# Bundles
-dist
-node_modules
-
-# Secrets
-.vscode
-.env
-archive.zip

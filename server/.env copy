@@ -1,0 +1,1 @@
+NODE_ENV='dev' PORT='80' DB_HOST='postgres.ctnsvq44szjr.us-east-1.rds.amazonaws.com' DB_PORT='5432' DB_NAME='postgres' DB_TEST='postgres' DB_USER='postgres' DB_PASSWORD='postgres' BCRYPT_PASS='Fenix' SALT_ROUND='10' TOKEN_SECRET='entaro123'
