@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders Store</title>
+    <style>
+        .container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 50px;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        }
+
+        .orders {
+            margin-top: 50px;
+        }
+
+        .order_div {
+            width: 800px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+            max-width: (100% - 40px);
+        }
+
+        .order_id {
+            font-size: 18px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            text-align:left;
+        }
+
+        .order_price {
+            font-size: 18px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            text-align:center;
+        }
+
+        .order_quantity {
+            font-size: 18px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            text-align:right;
+        }
+        .order_category {
+            font-size: 18px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            text-align:justify;
+        }
+        .order_current_mood
+        {
+            font-size: 18px;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            text-align:right;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Orders Store</h1>
+        <div class="orders" id="orders">
+            <p id="loading">Loading..</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        console.log("response")
+        // var endpoint = "http://localhost:4040";
+        var endpoint = "http://store-front-backend-en.eba-5hx5ux3q.us-east-1.elasticbeanstalk.com";
+        window.addEventListener("load", function (event) {
+            fetch(`${endpoint}/orders`, {
+                headers: {
+                    "Content-Type": "application/json",                }
+            })
+                .then((response) => response.json())
+                .then((orders_data) => {
+                    document.getElementById("loading").style.display = "none";
+                    const studentsElement = document.getElementById("orders");
+                    orders_data.forEach((order) => {
+                        const studentElement = document.createElement("div");
+                        studentElement.classList.add("order_div");
+                        studentElement.innerHTML = `
+                        <div class="order_id">order_id : ${order.order_id}</div>
+                        <div class="order_quantity">quantity :${order.quantity}</div>
+                        <div class="order_price">product_price: ${order.price}</div>
+                        <div class="order_category">category: ${order.category}</div>
+                        <div class="order_current_mood">current_mood: ${order.current_mood}</div>
+                    `;
+                        studentsElement.appendChild(studentElement);
+                    });
+                });
+               
+        });
+        
+    </script>
+</body>
+
+</html>
