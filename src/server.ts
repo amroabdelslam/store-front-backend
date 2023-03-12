@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const port = env.PORT || 8080;
+const port = env.PORT || 80;
 // Main route can be accessed without a token
 const address = `http://localhost:${port}`;
 app.listen(port, function () {
